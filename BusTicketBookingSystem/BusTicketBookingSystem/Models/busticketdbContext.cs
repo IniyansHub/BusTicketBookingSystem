@@ -16,6 +16,9 @@ namespace AuthenticationService.Models
         {
         }
 
+        public virtual DbSet<Busdatum> Busdata { get; set; } = null!;
+        public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; } = null!;
+        public virtual DbSet<Ticketdatum> Ticketdata { get; set; } = null!;
         public virtual DbSet<Userdatum> Userdata { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,6 +34,64 @@ namespace AuthenticationService.Models
         {
             modelBuilder.UseCollation("utf8mb4_0900_ai_ci")
                 .HasCharSet("utf8mb4");
+
+            modelBuilder.Entity<Busdatum>(entity =>
+            {
+                entity.HasKey(e => e.BusId)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("busdata");
+
+                entity.Property(e => e.BusId).HasColumnName("busId");
+
+                entity.Property(e => e.ArrivalTime)
+                    .HasColumnType("datetime")
+                    .HasColumnName("arrivalTime");
+
+                entity.Property(e => e.BusName)
+                    .HasMaxLength(45)
+                    .HasColumnName("busName");
+
+                entity.Property(e => e.BusRoute)
+                    .HasMaxLength(100)
+                    .HasColumnName("busRoute");
+
+                entity.Property(e => e.BusType)
+                    .HasMaxLength(5)
+                    .HasColumnName("busType");
+
+                entity.Property(e => e.TicketCount)
+                    .HasColumnName("ticketCount")
+                    .HasDefaultValueSql("'50'");
+            });
+
+            modelBuilder.Entity<Efmigrationshistory>(entity =>
+            {
+                entity.HasKey(e => e.MigrationId)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("__efmigrationshistory");
+
+                entity.Property(e => e.MigrationId).HasMaxLength(150);
+
+                entity.Property(e => e.ProductVersion).HasMaxLength(32);
+            });
+
+            modelBuilder.Entity<Ticketdatum>(entity =>
+            {
+                entity.HasKey(e => e.TicketId)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("ticketdata");
+
+                entity.Property(e => e.TicketId).HasColumnName("ticketId");
+
+                entity.Property(e => e.BusId).HasColumnName("busId");
+
+                entity.Property(e => e.TicketCount).HasColumnName("ticketCount");
+
+                entity.Property(e => e.UserId).HasColumnName("userId");
+            });
 
             modelBuilder.Entity<Userdatum>(entity =>
             {

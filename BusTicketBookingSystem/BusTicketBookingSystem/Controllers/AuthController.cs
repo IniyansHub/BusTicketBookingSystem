@@ -42,7 +42,7 @@ namespace AuthenticationService.Controllers
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, user.EmailId),
+                new Claim("Id",""+user.UserId),
                 new Claim(ClaimTypes.Role, ""+user.IsAdmin)
             };
 

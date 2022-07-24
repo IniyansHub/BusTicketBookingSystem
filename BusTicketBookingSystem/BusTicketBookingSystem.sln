@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "BusTicketBookingSystem\AuthenticationService.csproj", "{A29684D5-22EB-4914-9D13-1C345B87E592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingService", "TicketingService\TicketingService.csproj", "{156C9D5A-595D-4404-A908-2948028D8E5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketingService", "TicketingService\TicketingService.csproj", "{156C9D5A-595D-4404-A908-2948028D8E5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminService", "AdminService\AdminService.csproj", "{9B70444E-A4AD-4491-B8EC-9C05FFB07B8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{156C9D5A-595D-4404-A908-2948028D8E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{156C9D5A-595D-4404-A908-2948028D8E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{156C9D5A-595D-4404-A908-2948028D8E5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B70444E-A4AD-4491-B8EC-9C05FFB07B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B70444E-A4AD-4491-B8EC-9C05FFB07B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B70444E-A4AD-4491-B8EC-9C05FFB07B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B70444E-A4AD-4491-B8EC-9C05FFB07B8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
