@@ -44,3 +44,5 @@ C:\Users\VC\source\repos\BusTicketBookingSystem\TicketingService\bin\Debug\net6.
 C:\Users\VC\source\repos\BusTicketBookingSystem\TicketingService\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\VC\source\repos\BusTicketBookingSystem\TicketingService\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\VC\source\repos\BusTicketBookingSystem\TicketingService\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\VC\source\repos\BusTicketBookingSystem\TicketingService\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\VC\source\repos\BusTicketBookingSystem\TicketingService\bin\Debug\net6.0\Newtonsoft.Json.dll

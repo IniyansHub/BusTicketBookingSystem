@@ -1,17 +1,22 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using TicketingService.Models;
+using TicketingService.Producer;
+using TicketingService.Services;
 
 namespace TicketingService.Controllers
 {
     public class TicketController : Controller
     {
         private readonly busticketdbContext context;
-        public TicketController(busticketdbContext dbcontext)
+        private readonly TicketService _service;
+        public TicketController(busticketdbContext dbcontext, TicketService service)
         {
             context = dbcontext;
+            _service = service;
         }
 
         public int getIdFromToken()
@@ -37,8 +42,21 @@ namespace TicketingService.Controllers
 
         }
 
-        
-        
+        [HttpGet]
+        [Route("/api/showbuses/{id}")]
+        public async Task<IActionResult> DisplayBus(int id)
+        {
+            var busDetail = await _service.DisplayBusDetailsBasedOnId(id);
+            if (busDetail != null)
+            {
+                return Ok(busDetail);
+            }
+            else
+            {
+                return NotFound("Bus not found");
+            }
+            
+        }
 
         //Display all the booked tickets of the user
         [HttpGet]
@@ -97,7 +115,7 @@ namespace TicketingService.Controllers
 
                     context.Ticketdata.Add(bookedTicket);
                 }
-
+         
                 await context.SaveChangesAsync();
             }
 

@@ -22,7 +22,7 @@ namespace AdminService.Controllers
 
         }
 
-        [HttpPut]
+        [HttpDelete]
         [Route("/api/admin/cancelbooking"),Authorize(Roles = "1")]
         public async Task<ActionResult> CancelTickets([FromBody] CancelBooking cancelBooking)
         {
